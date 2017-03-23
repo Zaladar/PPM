@@ -8,4 +8,6 @@ detta är våran git README vi får fixa till den med lite små ting för att beskriv
 pilla inte på LICENSE det är en standard licens från MIT.
 den tillåter vem som helst att göra typ vad som helst med vår kod, dock har vi inget ansvar för användandet av koden.
 
+stupid edit for mr cogepitome....
+
 GLHF
