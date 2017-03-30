@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <string.h>
 
 #define MAXMSGLENGTH 500
 #define FILENAME "C:/Users/iacob/Desktop/msg.txt"
@@ -37,6 +38,33 @@ char* getMessage(char* filename, char* msg){
     }
 }
 
+
+
+/*
+ *The format function will take a string as argument and return it in a format that can be used
+ *by the sign. Currently does nothing productive, but formatted is meant to temporarily contain
+ *the formatted string before it's put back into char* string.
+*/
+char* format(char* string){
+  char* formatted = ((char*) malloc(sizeof(char) * strlen(string)+1));
+  formatted = strdup(string);
+  free(formatted);
+  return string;
+  }
+
+
+
+/*
+ *The transmit function will be responsible for sending the string to the wireless transmitter.
+ *Does nothing but print its argument for the moment. Might return an error code.
+*/
+int transmit(char* transmission){
+  printf("Message to be transmitted: \n   %s", transmission);
+  return 0;
+  }
+
+
+
 /*
  *Runs the functions getMessage, format, and transmit,
  *as well as initializing and cleaning up the required variables.
@@ -46,8 +74,7 @@ int main(){
   char* message = ((char*) malloc(sizeof(char) * MAXMSGLENGTH+1));
 
   //Call getMessage to read the content of filename into the string message
-  getMessage(FILENAME, message);
-  printf("%s\n", message);
+  transmit(format(getMessage(FILENAME, message)));
 
   //Free memory for the message string
   free(message);
