@@ -10,6 +10,7 @@
 #include <string.h>
 
 #define MAXMSGLENGTH 500
+#define SPLITKEY '|'
 #define FILENAME "C:/Users/iacob/Desktop/msg.txt"
 
 /*
@@ -17,18 +18,34 @@
  * The specified file should contain nothing but text. Returns a reference to the changed string.
 */
 char* getMessage(char* filename, char* msg){
-  int   msgLength;
+  int   fileLength, msgLength;
+  char* tempMsg = ((char*) malloc(sizeof(char) * MAXMSGLENGTH+1));
   FILE *fp = fopen( filename, "r");
 
   if(fp){
     //Find end of text file, find file size, and go back to beginning of file.
     fseek(fp, 0, SEEK_END);
-    msgLength = ftell(fp);
+    fileLength = ftell(fp);
     fseek(fp, SEEK_SET, 0);
 
-    //Read the entire file pointed to by fp in chunks of 2 byte to the string msg and store the read size in txtLength.
-    fread(msg, sizeof(char), msgLength, fp);
-    msg[msgLength] = '\0';
+    //Read the entire file pointed to by fp to the string tempMsg.
+    //Find the first character matching splitkey and save the pointer to it in endp.
+    fread(tempMsg, sizeof(char), fileLength, fp);
+    char* endp = strchr(tempMsg, SPLITKEY);
+
+    if(endp != NULL) {
+      //Calculate the difference between the pointers to the beginning of the string and the splitkey.
+      //Copy the length of the first message to msg and add a terminator.
+      msgLength = ((char*)endp - (char*)tempMsg);
+      strncpy(msg, tempMsg, msgLength);
+      msg[msgLength] = '\0';
+      }
+    else{
+      return "Error: No terminating character found.";
+      }
+
+    //Free the memory allocated to tempMsg, and close the file.
+    free(tempMsg);
     fclose(fp);
 
     return msg;
