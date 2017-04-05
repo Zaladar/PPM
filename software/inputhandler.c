@@ -81,17 +81,26 @@ int transmit(char* transmission){
   }
 
 
-
 /*
  *Runs the functions getMessage, format, and transmit,
  *as well as initializing and cleaning up the required variables.
 */
-int main(){
+int main(int argc, char *argv[]){
+  char* filepath;
+  //Check that arguments are correct
+  if(argc != 2){
+    printf("Expected FILENAME argument, found nothing\n...\nEntering DEBUG mode.\n...\n...\n");
+    filepath = FILENAME;
+    }
+    else{
+      filepath = argv[1];
+      }
+
   //Allocate memory for the message string, the same array will be overwritten for subsequent messages.
   char* message = ((char*) malloc(sizeof(char) * MAXMSGLENGTH+1));
 
   //Call getMessage to read the content of filename into the string message
-  transmit(format(getMessage(FILENAME, message)));
+  transmit(format(getMessage(filepath, message)));
 
   //Free memory for the message string
   free(message);
