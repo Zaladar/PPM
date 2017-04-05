@@ -126,6 +126,16 @@ input[type=submit] {
 		text-transform: uppercase;
 }
 
+#msgHistoryBox{
+	padding: 12px 20px;
+  margin: 8px 0;
+	border: 1px solid #A9A9A9;
+	box-sizing: border-box;
+
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
 #activeMsgBox
 {
 	padding: 12px 20px;
