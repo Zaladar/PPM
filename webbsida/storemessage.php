@@ -1,13 +1,13 @@
 <?php
-if(isset($_POST['updateMsg'])) {
+if(!empty($_POST['updateMsg'])) {
   $file_data = $_POST['updateMsg'];
-  $file_data .= "|" . date("Y-m-d h:i:sa") . "|\r\n";
+  $file_data .= "|" . date("Y-m-d H:i:s") . "|\r\n";
   $file_data .= file_get_contents('msg/mydata.txt');
   file_put_contents('msg/mydata.txt', $file_data);
+
+  $last_line = system('./test', $retval);
+  echo $retval;
 }
-else {
-   die('no post data to process');
-}
-header('Location: index.html');
-exit;
+//header('Location: index.html');
+//exit;
 ?>

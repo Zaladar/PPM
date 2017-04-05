@@ -106,6 +106,13 @@ h3{
 	width: 50%;
 }
 
+#msgHistoryBody
+{
+	text-align: center;
+	margin: 0 auto;
+	width: 50%;
+}
+
 input[type=text] {
   width: 100%;
   padding: 12px 20px;
@@ -123,10 +130,12 @@ input[type=submit] {
     -webkit-border-radius: 5px;
     border-radius: 5px;
 		margin-top: 0em;
+		margin-bottom: 0.5em;
 		text-transform: uppercase;
 }
 
 #msgHistoryBox{
+	text-align: left;
 	padding: 12px 20px;
   margin: 8px 0;
 	border: 1px solid #A9A9A9;
@@ -150,6 +159,10 @@ input[type=submit] {
 
 	margin-top: 10px;
 	margin-bottom: 20px;
+}
+
+#timestamp{
+	color: #F96400;
 }
 
 #mainBody
@@ -192,7 +205,7 @@ input[type=submit] {
 p{
 	font-family: verdana, georgia, sans-serif;
 	font-size: 0.9em;
-	margin-bottom: 1em;
+	margin-bottom: 0.5em;
 }
 
 h2{
