@@ -1,8 +1,9 @@
 <?php
-  $file = file_get_contents('msg/mydata.txt');
+  $file = htmlspecialchars(file_get_contents('msg/mydata.txt'));
   $message = explode('|', $file);
   $i = 0;
   $ipo = 0;
+  echo '<div id="msgHistoryBox">';
   foreach($message as $msg){
     if($i+2 <= count($message)){
       $ipo = $i + 1;
@@ -10,4 +11,5 @@
       $i = $i + 2;
     }
   }
+  echo '</div>';
 ?>
