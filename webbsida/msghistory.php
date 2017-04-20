@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <!--<link rel="icon" type="image/icon" href="Pictures/favico.ico" />-->
   <link rel="stylesheet" type="text/css" href="mystyle.css">
-  <title>Receptkungen</title>
+  <title>Superdisplay</title>
   <style>
   </style>
   </head>
   <body>
     <div id="mainHeader">
-      <h1 id="headerText">Superdisplay beta 0.3.2</h1>
+      <h1 id="headerText">Superdisplay beta 0.7.12</h1>
       <!--<div id="headerImage">
         <a href="index.html"><img src="Pictures/headertest2.png" alt="Header picture"></a>
       </div>-->
