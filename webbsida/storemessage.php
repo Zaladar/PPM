@@ -8,6 +8,6 @@ if(!empty($_POST['updateMsg'])) {
   $last_line = system('./test', $retval);
   echo $retval;
 }
-header('Location: index.html');
+header('Location: index.php');
 //exit;
 ?>
