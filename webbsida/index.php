@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <!--<link rel="icon" type="image/icon" href="Pictures/favico.ico" />-->
   <link rel="stylesheet" type="text/css" href="mystyle.css">
-  <title>Receptkungen</title>
+  <title>Superdisplay</title>
   <style>
   </style>
   </head>
