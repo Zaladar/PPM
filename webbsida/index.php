@@ -10,7 +10,7 @@
   </head>
   <body>
     <div id="mainHeader">
-      <h1 id="headerText">Superdisplay beta 0.3.2</h1>
+      <h1 id="headerText">Superdisplay beta 0.7.12</h1>
       <!--<div id="headerImage">
         <a href="index.html"><img src="Pictures/headertest2.png" alt="Header picture"></a>
       </div>-->
