@@ -19,10 +19,10 @@
     <div class="mainMenu">
       <ul class="menu">
         <li class="menuLi">
-          <a href="index.php" class="menuBtn">Home</a>
+          <a href="index.php" class="menuBtn active">Home</a>
         </li>
         <li class="menuLi">
-          <a href="index.php" class="menuBtn active">Message History</a>
+          <a href="msghistory.php" class="menuBtn">Message History</a>
         </li>
         <li class="login">
           <a href="#" id="login" class="menuBtn">Login</a>
@@ -32,13 +32,20 @@
     </div>
     <div id="mainBody">
       <!--The field for all texts and forms-->
-      <div id="msgHistoryBody">
+      <div id="textFieldBody">
         <!--The field for the active message on the display-->
         <div id="textFieldActive">
-          <h2>Message history:</h2><br>
-          <?php include 'msgs.php';?>
+          <h2>Message displayed right now:</h2><br>
+          <?php include 'displaymsg.php';?>
         </div>
+      <!--The field for the message to be sent to the display-->
+      <div id="textFieldUpdate">
+        <form action="storemessage.php" method="post">
+          <h2>Enter a new message to display:</h2><br>
+          <input name="updateMsg" type="text" maxlength="500">
+          <input type="submit" name="submit" value="Update display">
+        </form>
+      </div>
       </div>
     </div>
-
   </body>
