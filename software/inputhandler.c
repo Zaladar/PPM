@@ -8,10 +8,15 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/socket.h>
+#include <bluetooth/bluetooth.h>
+#include <bluetooth/hci.h>
+#include <bluetooth/hci_lib.h>
 
 #define MAXMSGLENGTH 500
 #define SPLITKEY '|'
 #define FILENAME "C:/Users/iacob/Desktop/msg.txt"
+#define BTADDRESS "C0:EE:FB:ED:9B:93"
 
 /*
  * The getMessage function reads from the file specified and puts the content in msg.
