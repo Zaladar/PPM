@@ -13,7 +13,7 @@
 #define SPLITKEY '|'
 #define FILENAME "../webbsida/msg/mydata.txt"
 #define WRITEPATH "../../file.txt"
-#define BTSCRIPTPATH "btscript"
+#define BTSCRIPTPATH "cd ../../ && btscript"
 
 /*
  * The getMessage function reads from the file specified and puts the content in msg.
