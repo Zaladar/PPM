@@ -11,9 +11,9 @@
 
 #define MAXMSGLENGTH 500
 #define SPLITKEY '|'
-#define FILENAME "~/PPM/webbsida/msg/mydata.txt"
-#define WRITEPATH "~/file.txt"
-#define BTSCRIPTPATH "~/PPM/software/btscript"
+#define FILENAME "../webbsida/msg/mydata.txt"
+#define WRITEPATH "../../file.txt"
+#define BTSCRIPTPATH "../software/btscript"
 
 /*
  * The getMessage function reads from the file specified and puts the content in msg.
@@ -67,10 +67,17 @@ char* getMessage(char* filename, char* msg){
 char* format(char* string){
   char* formatted = ((char*) malloc(sizeof(char) * strlen(string)+1));
   formatted = strdup(string);
-  FILE* writeto = fopen( WRITEPATH, "w");
-  fprintf(writeto, formatted);
+  FILE* writeto = NULL;
+  writeto = fopen( WRITEPATH, "w");
+  if(writeto != NULL){
+    fprintf(writeto, "%s", string);
+    fclose(writeto);
+    }
+  else{
+    perror("fopen");
+    }
   free(formatted);
-  return formatted;
+  return string;
   }
 
 
@@ -92,10 +99,10 @@ int main(int argc, char *argv[]){
   char* filepath;
   //Check that arguments are correct
   if(argc != 2){
-    printf("Expected FILENAME argument, found nothing\n...\nEntering DEBUG mode.\n...\n...\n");
     filepath = FILENAME;
     }
     else{
+      printf("Using argument 1 as file name\n...\n...\n");
       filepath = argv[1];
       }
 
