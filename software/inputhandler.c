@@ -8,10 +8,6 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <string.h>
-#include <sys/socket.h>
-#include <bluetooth/bluetooth.h>
-#include <bluetooth/hci.h>
-#include <bluetooth/hci_lib.h>
 
 #define MAXMSGLENGTH 500
 #define SPLITKEY '|'
