@@ -17,6 +17,9 @@
 #define SPLITKEY '|'
 #define FILENAME "C:/Users/iacob/Desktop/msg.txt"
 #define BTADDRESS "C0:EE:FB:ED:9B:93"
+#define BTSHELLSCRIPT "\
+        #/bin/bash \n\
+        echo \"I'm pretending to transmit\""
 
 /*
  * The getMessage function reads from the file specified and puts the content in msg.
@@ -75,13 +78,14 @@ char* format(char* string){
   }
 
 
-
 /*
  *The transmit function will be responsible for sending the string to the wireless transmitter.
  *Does nothing but print its argument for the moment. Might return an error code.
 */
 int transmit(char* transmission){
-  printf("Message to be transmitted: \n   %s", transmission);
+  //str2ba(BTADDRESS, btaddr_t *ba);
+  system(BTSHELLSCRIPT);
+  //printf("Message to be transmitted: \n   %s", transmission);
   return 0;
   }
 
