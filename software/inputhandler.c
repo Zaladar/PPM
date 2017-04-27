@@ -11,11 +11,9 @@
 
 #define MAXMSGLENGTH 500
 #define SPLITKEY '|'
-#define FILENAME "C:/Users/iacob/Desktop/msg.txt"
-#define BTADDRESS "C0:EE:FB:ED:9B:93"
-#define BTSHELLSCRIPT "\
-        #/bin/bash \n\
-        echo \"I'm pretending to transmit\""
+#define FILENAME "~/PPM/webbsida/msg/mydata.txt"
+#define WRITEPATH "~/file.txt"
+#define BTSCRIPTPATH "~/PPM/software/btscript"
 
 /*
  * The getMessage function reads from the file specified and puts the content in msg.
@@ -69,8 +67,10 @@ char* getMessage(char* filename, char* msg){
 char* format(char* string){
   char* formatted = ((char*) malloc(sizeof(char) * strlen(string)+1));
   formatted = strdup(string);
+  FILE* writeto = fopen( WRITEPATH, "w");
+  fprintf(writeto, formatted);
   free(formatted);
-  return string;
+  return formatted;
   }
 
 
@@ -79,9 +79,7 @@ char* format(char* string){
  *Does nothing but print its argument for the moment. Might return an error code.
 */
 int transmit(char* transmission){
-  //str2ba(BTADDRESS, btaddr_t *ba);
-  system(BTSHELLSCRIPT);
-  //printf("Message to be transmitted: \n   %s", transmission);
+  system(BTSCRIPTPATH);
   return 0;
   }
 
