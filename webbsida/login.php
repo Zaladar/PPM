@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" name="google-signin-client_id" content="148439629032-iu1pm0rivba6ihqk9a9lug03ib03ek92.apps.googleusercontent.com.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta charset="UTF-8" name="google-signin-client_id" content="148439629032-jvg0al3iou9vsoeumnlkj6ufujtfv5kl.apps.googleusercontent.com">
   <!--<link rel="icon" type="image/icon" href="Pictures/favico.ico" />-->
   <link rel="stylesheet" type="text/css" href="mystyle.css">
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <title>Superdisplay</title>
   <style>
   </style>
@@ -35,6 +35,15 @@
     <div id="mainBody">
       <!--The field for all texts and forms-->
       <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <a href="#" onclick="signOut();">Sign out</a>
+        <script>
+          function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+              console.log('User signed out.');
+            });
+          }
+        </script>
 
     </div>
   </body>

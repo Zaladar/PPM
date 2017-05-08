@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <!--<link rel="icon" type="image/icon" href="Pictures/favico.ico" />-->
   <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
   <title>Superdisplay</title>
   <style>
   </style>
-  </head>
+</head>
   <body>
     <div id="mainHeader">
       <h1 id="headerText">Superdisplay beta 0.7.12</h1>
@@ -25,7 +26,7 @@
           <a href="msghistory.php" class="menuBtn">Message History</a>
         </li>
         <li class="login">
-          <a href="#" id="login" class="menuBtn">Login</a>
+          <a href="login.php" id="login" class="menuBtn">Login</a>
         </li>
       </ul>
     </div>
