@@ -6,8 +6,19 @@
 
   <script>
 
-    window.onLoad = functioin initialize(){
-      document.getElementById("onClickShowHide").addEventListener("click", showhide);
+    window.onLoad = function initialize(){
+      //document.getElementById('onClickShowHide').addEventListener("click", showhide);
+      showhide();
+    }
+
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Welcome: ' + profile.getName());
+      showhide();
+      //console.log('Image URL: ' + profile.getImageUrl());
+      //console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
     }
 
     function showhide(){
@@ -29,7 +40,11 @@
       else{
         var updateDisplay = document.getElementById('textFieldUpdate');
         updateDisplay.style.display = 'none';
-        console.log('not logged in');
+
+        var loginField = document.getElementById('loginField');
+        loginField.style.display = 'block';
+
+        console.log('user not logged in');
       }
     }
   </script>
@@ -38,6 +53,7 @@
     function signOut() {
       var auth2 = gapi.auth2.getAuthInstance();
       auth2.signOut().then(function () {
+        showhide();
         console.log('User signed out.');
       });
     }
@@ -87,7 +103,7 @@
           <input name="updateMsg" type="text" maxlength="500">
           <input type="submit" name="submit" value="Update display">
         </form>
-        <a id="onClickShowHide" href="#" onclick="signOut();">Sign out</a>
+        <a id="onClickShowHide" href="#" onclick="signOut(); test();">Sign out</a>
       </div>
       <!--Login button-->
         <div id="loginField">
