@@ -6,22 +6,34 @@
 
   <script>
 
-    window.onLoad = function initialize(){
+    /*window.onLoad = function initialize(){
       //document.getElementById('onClickShowHide').addEventListener("click", showhide);
       showhide();
-    }
+    }*/
 
     function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();
       //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
       console.log('Welcome: ' + profile.getName());
-      showhide();
+
+      var loginField = document.getElementById('loginField');
+      loginField.style.display = 'none';
+
+      var updateDisplay = document.getElementById('textFieldUpdate');
+      updateDisplay.style.display = 'block';
+      //console.log(updateDisplay);
+
+      var profile = googleUser.getBasicProfile();
+      //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
       //console.log('Image URL: ' + profile.getImageUrl());
       //console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
     }
 
-    function showhide(){
+    /*function showhide(){
         if(typeof googleUser != "undefined") {
 
           var loginField = document.getElementById('loginField');
@@ -46,14 +58,20 @@
 
         console.log('user not logged in');
       }
-    }
+    }*/
   </script>
 
   <script>
     function signOut() {
       var auth2 = gapi.auth2.getAuthInstance();
       auth2.signOut().then(function () {
-        showhide();
+        var updateDisplay = document.getElementById('textFieldUpdate');
+        updateDisplay.style.display = 'none';
+
+        var loginField = document.getElementById('loginField');
+        loginField.style.display = 'block';
+
+        console.log('user not logged in');
         console.log('User signed out.');
       });
     }
