@@ -6,10 +6,26 @@
 
   <script>
 
-    /*window.onLoad = function initialize(){
+    window.onLoad = function initialize(){
       //document.getElementById('onClickShowHide').addEventListener("click", showhide);
-      showhide();
-    }*/
+      //showhide();
+
+      var auth2 = gapi.auth2.getAuthInstance();
+      if(typeof auth2 != "undefined"){
+        var loginField = document.getElementById('loginField');
+        loginField.style.display = 'none';
+
+        var updateDisplay = document.getElementById('textFieldUpdate');
+        updateDisplay.style.display = 'block';
+      }
+      else{
+        var updateDisplay = document.getElementById('textFieldUpdate');
+        updateDisplay.style.display = 'none';
+
+        var loginField = document.getElementById('loginField');
+        loginField.style.display = 'block';
+      }
+    }
 
     function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();
@@ -121,7 +137,7 @@
           <input name="updateMsg" type="text" maxlength="500">
           <input type="submit" name="submit" value="Update display">
         </form>
-        <a id="onClickShowHide" href="#" onclick="signOut(); test();">Sign out</a>
+        <a id="onClickShowHide" href="#" onclick="signOut();">Sign out</a>
       </div>
       <!--Login button-->
         <div id="loginField">
