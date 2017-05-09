@@ -11,10 +11,11 @@
         loginField.style.display = 'none';
 
         var updateDisplay = document.getElementById('textFieldUpdate');
-        console.log(updateDisplay);
+        updateDisplay.style.display = 'block';
+        //console.log(updateDisplay);
 
         var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
         console.log('Name: ' + profile.getName());
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
@@ -26,6 +27,15 @@
       console.log('not logged in');
     }
   }
+  </script>
+
+  <script>
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        console.log('User signed out.');
+      });
+    }
   </script>
 
   <meta charset="UTF-8" name="google-signin-client_id" content="148439629032-jvg0al3iou9vsoeumnlkj6ufujtfv5kl.apps.googleusercontent.com">
@@ -72,6 +82,7 @@
           <input name="updateMsg" type="text" maxlength="500">
           <input type="submit" name="submit" value="Update display">
         </form>
+        <a href="#" onclick="signOut();">Sign out</a>
       </div>
       <!--Login button-->
         <div id="loginField">
