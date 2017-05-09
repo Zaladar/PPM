@@ -6,11 +6,14 @@
 
   <script>
 
-    window.onLoad = function initialize(){
+    window.onLoad = initialize;
+
+    function initialize(){
       //document.getElementById('onClickShowHide').addEventListener("click", showhide);
       //showhide();
 
       var auth2 = gapi.auth2.getAuthInstance();
+      console.log(auth2);
       if(typeof auth2 != "undefined"){
         var loginField = document.getElementById('loginField');
         loginField.style.display = 'none';
@@ -102,7 +105,7 @@
 </head>
   <body>
     <div id="mainHeader">
-      <h1 id="headerText">Superdisplay beta 0.7.12</h1>
+      <h1 id="headerText">Superdisplay beta 1.0.1</h1>
       <!--<div id="headerImage">
         <a href="index.html"><img src="Pictures/headertest2.png" alt="Header picture"></a>
       </div>-->
