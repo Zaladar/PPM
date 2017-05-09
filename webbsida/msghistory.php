@@ -25,7 +25,7 @@
           <a href="index.php" class="menuBtn active">Message History</a>
         </li>
         <li class="login">
-          <a href="#" id="login" class="menuBtn">Login</a>
+          <a href="login.php" id="login" class="menuBtn">Login</a>
         </li>
       </ul>
     </div>
