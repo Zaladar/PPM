@@ -5,28 +5,33 @@
   <script src="https://apis.google.com/js/platform.js" async defer></script>
 
   <script>
-  window.onload = function showhide(){
-      if(typeof googleUser != "undefined") {
-        var loginField = document.getElementById('loginField');
-        loginField.style.display = 'none';
 
+    window.onLoad = functioin initialize(){
+      document.getElementById("onClickShowHide").addEventListener("click", showhide);
+    }
+
+    function showhide(){
+        if(typeof googleUser != "undefined") {
+
+          var loginField = document.getElementById('loginField');
+          loginField.style.display = 'none';
+
+          var updateDisplay = document.getElementById('textFieldUpdate');
+          updateDisplay.style.display = 'block';
+          //console.log(updateDisplay);
+
+          var profile = googleUser.getBasicProfile();
+          //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+          console.log('Name: ' + profile.getName());
+          console.log('Image URL: ' + profile.getImageUrl());
+          console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+      }
+      else{
         var updateDisplay = document.getElementById('textFieldUpdate');
-        updateDisplay.style.display = 'block';
-        //console.log(updateDisplay);
-
-        var profile = googleUser.getBasicProfile();
-        //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        updateDisplay.style.display = 'none';
+        console.log('not logged in');
+      }
     }
-    else{
-      var updateDisplay = document.getElementById('textFieldUpdate');
-      console.log(updateDisplay);
-      updateDisplay.style.display = 'none';
-      console.log('not logged in');
-    }
-  }
   </script>
 
   <script>
@@ -82,12 +87,12 @@
           <input name="updateMsg" type="text" maxlength="500">
           <input type="submit" name="submit" value="Update display">
         </form>
-        <a href="#" onclick="signOut();">Sign out</a>
+        <a id="onClickShowHide" href="#" onclick="signOut();">Sign out</a>
       </div>
       <!--Login button-->
         <div id="loginField">
           <h2 id="extraMarginBot">You need to log in to update the display</h2>
-          <div class="g-signin2" data-onsuccess="onSignIn"></div>
+          <div id="onClickShowHide" class="g-signin2" data-onsuccess="onSignIn"></div>
         </div>
 
       </div>
