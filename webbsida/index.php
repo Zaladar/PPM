@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  <script>
+  window.onload = function showhide(){
+      if(typeof googleUser != "undefined") {
+        var loginField = document.getElementById('loginField');
+        loginField.style.display = 'none';
+
+        var updateDisplay = document.getElementById('textFieldUpdate');
+        console.log(updateDisplay);
+
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    }
+    else{
+      var updateDisplay = document.getElementById('textFieldUpdate');
+      console.log(updateDisplay);
+      updateDisplay.style.display = 'none';
+      console.log('not logged in');
+    }
+  }
+  </script>
+
+  <meta charset="UTF-8" name="google-signin-client_id" content="148439629032-jvg0al3iou9vsoeumnlkj6ufujtfv5kl.apps.googleusercontent.com">
   <!--<link rel="icon" type="image/icon" href="Pictures/favico.ico" />-->
   <link rel="stylesheet" type="text/css" href="mystyle.css">
-  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
   <title>Superdisplay</title>
   <style>
   </style>
@@ -25,9 +51,9 @@
         <li class="menuLi">
           <a href="msghistory.php" class="menuBtn">Message History</a>
         </li>
-        <li class="login">
+        <!--<li class="login">
           <a href="login.php" id="login" class="menuBtn">Login</a>
-        </li>
+        </li>-->
       </ul>
     </div>
     </div>
@@ -47,6 +73,12 @@
           <input type="submit" name="submit" value="Update display">
         </form>
       </div>
+      <!--Login button-->
+        <div id="loginField">
+          <h2 id="extraMarginBot">You need to log in to update the display</h2>
+          <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        </div>
+
       </div>
     </div>
   </body>
