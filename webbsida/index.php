@@ -6,7 +6,7 @@
 
   <script>
 
-    window.onLoad = initialize;
+    window.onload = initialize;
 
     function initialize(){
       //document.getElementById('onClickShowHide').addEventListener("click", showhide);
@@ -52,32 +52,6 @@
 
     }
 
-    /*function showhide(){
-        if(typeof googleUser != "undefined") {
-
-          var loginField = document.getElementById('loginField');
-          loginField.style.display = 'none';
-
-          var updateDisplay = document.getElementById('textFieldUpdate');
-          updateDisplay.style.display = 'block';
-          //console.log(updateDisplay);
-
-          var profile = googleUser.getBasicProfile();
-          //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-          console.log('Name: ' + profile.getName());
-          console.log('Image URL: ' + profile.getImageUrl());
-          console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-      }
-      else{
-        var updateDisplay = document.getElementById('textFieldUpdate');
-        updateDisplay.style.display = 'none';
-
-        var loginField = document.getElementById('loginField');
-        loginField.style.display = 'block';
-
-        console.log('user not logged in');
-      }
-    }*/
   </script>
 
   <script>
