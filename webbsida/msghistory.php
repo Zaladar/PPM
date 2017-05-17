@@ -24,9 +24,9 @@
         <li class="menuLi">
           <a href="index.php" class="menuBtn active">Message History</a>
         </li>
-        <!--<li class="login">
+        <li class="login">
           <a href="login.php" id="login" class="menuBtn">Login</a>
-        </li>-->
+        </li>
       </ul>
     </div>
     </div>
