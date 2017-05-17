@@ -4,5 +4,5 @@ echo "Hello World!"
 #btsetup
 ussp-push 30:14:11:21:23:74@ file.txt file.txt
 #btfinish
-#sudo rfcomm connect hci0 30:14:11:21:23:74 
+#sudo rfcomm connect hci0 C0:EE:FB:ED:9B:93 
 #| sudo su -c echo 'message' > /dev/rfcomm0
